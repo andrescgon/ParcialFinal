@@ -1,0 +1,19 @@
+{% load staticfiles %}
+<aside class="main-sidebar">
+    <section class="sidebar">
+        <ul class="sidebar-menu">
+            <li class="active">
+                <a href="{% url 'maps:measurement' %}">
+                    <i class="fa fa-table"></i>
+                    <span>Lista Medidas</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="{% url 'maps:map' %}">
+                    <i class="fa fa-map"></i>
+                    <span>Mapas</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+</aside>

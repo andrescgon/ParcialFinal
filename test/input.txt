@@ -1,0 +1,49 @@
+importar lib.agent.agent
+
+funcion action1(entrada)
+  log("State " + agent.current_state.id + ": " + entrada)
+  retorno ("Doctor")
+end
+
+funcion action2(entrada)
+  log("State " + agent.current_state.id + ": " + entrada)
+  retorno (entrada)
+end
+
+funcion action3(entrada)
+  result = agent.connect()
+  log("State " + agent.current_state.id + ": " + result)
+  if (entrada == "Doctor") {
+    retorno(false)
+  }
+  retorno(entrada + 10)
+end
+
+funcion action4(entrada)
+  log("State " + agent.current_state.id + ": " + entrada)
+  retorno(entrada)
+end
+
+funcion action5(entrada)
+  log("State " + agent.current_state.id + ": " + entrada)
+  retorno(entrada)
+end
+
+state1 = State("Init", action1, false, [{ id: "Callejon", condition: false },{ id: "Conexion", condition: "Doctor" }])
+state2 = State("Callejon", action2, false, [])
+state3 = State("Conexion", action3, false, [{ id: "Callejon 2", condition: 30 },{ id: "Terminal", condition: false }])
+state4 = State("Callejon 2", action4, false, [])
+state5 = State("Terminal", action5, true, [])
+
+# agent = Agent("Agente Suma", "Init", [state1, state2, state3, state4, state5])
+
+# result = agent.run()
+# log("RESULT: " + result)
+
+agentfactory = AgentFactory()
+
+agents = agentfactory.create_agents(3, Agent, "Pepito", "Init", [state1, state2, state3, state4, state5], false)
+
+result = agentfactory.runChildren(agents)
+
+log(result[1])

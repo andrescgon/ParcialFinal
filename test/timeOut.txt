@@ -1,0 +1,8 @@
+importar mas.__init__
+
+funcion timeOut()
+    agent = TimeOutAgent("Count till time finish", "testuser1", "pass123")
+    agent.start()
+end
+
+agent = timeOut()

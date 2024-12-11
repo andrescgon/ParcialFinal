@@ -1,0 +1,13 @@
+importar mas.__init__
+
+#CREANDO NETWORK
+network = NetworkAgent("This agent will be the network!", "testuser1", "pass123")
+
+#CREANDO RESOURCESAgent
+resource = ResourcesAgent("This agent need to be part of the network!", "testuser2", "pass123")
+
+network.set_resource_agent(resource)
+resource.set_network(network)
+
+network.start()
+resource.start()

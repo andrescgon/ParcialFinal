@@ -1,0 +1,5 @@
+plot([1, 3.14], loga)
+plot([0, 3.14], sqrt)
+plot([-3.14, 3.14] sin)
+plot([-3.14, 3.14] cos)
+plot([-3.14, 3.14] exp)
